@@ -11,7 +11,7 @@ cat | xargs -I {} echo {}+p | dc
 ```
 3. Read from stdin a matrix and calculate the sum of the i-th column by a single line of command.
 ```
-
+cat | paste | cut -d ' ' -f `echo $i` | paste -s -d + | bc
 ```
 4. Read from stdin a matrix and calculate the sum of the i-th row by a single line of command.
 ```
