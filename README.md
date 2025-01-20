@@ -1,4 +1,5 @@
 # ESTR2306-Lab
+There are some Linux commands to solve problems of ESTR2306 Lab session.
 
 ## Linux
 1. Excluding directories, symbolic links and hidden files, find the 2nd largest file size in /bin by a single line of command.
