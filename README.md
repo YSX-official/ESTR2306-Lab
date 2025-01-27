@@ -18,3 +18,15 @@ cat | cut -d ' ' -f `echo $i` | paste -s -d + | bc
 ```
 cat | paste -s -d - | cut -d - -f `echo $i` | tr " " "+" | bc
 ```
+5. Join two files with matched labels.
+```
+sort -n math.txt | join -s $'\t' name.txt | cut -d $'\t' -f2-
+```
+6. Extract the path of the default shell the current user uses.
+```
+getent passwd $USER | cut -d : -f7
+```
+7. Adder
+```
+echo $((`cat | tr -s ' ' | tr ' ' +`))
+```
