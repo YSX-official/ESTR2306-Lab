@@ -23,7 +23,7 @@ cat | paste -s -d - | cut -d - -f `echo $i` | tr " " "+" | bc
 ## Lab 3
 1. Join two files with matched labels.
 ```
-sort -n math.txt | join -s $'\t' name.txt | cut -d $'\t' -f2-
+sort -n math.txt | join -t $'\t' name.txt | cut -d $'\t' -f2-
 ```
 2. Extract the path of the default shell the current user uses.
 ```
@@ -34,8 +34,22 @@ getent passwd $USER | cut -d : -f7
 echo $((`cat | tr -s ' ' | tr ' ' +`))
 ```
 ## Lab 4
-1.
-2.
+1. Join three files with matched labels.
+```
+sort -n math.txt | join -t $'\t' name.txt - > tmp.txt && sort -n prog.txt | join -t $'\t' tmp.txt - > scoresheet.txt
+```
+2. Add a date at the end of the file names.
+```
+#!/bin/bash
+
+read -p "Enter path: " dir_path
+current_date=$(date +"%Y%m%d")
+
+for file in "$dir_path"/*; do
+        new_name="${file}_${current_date}"
+        mv "$i" "$new_name"
+done
+```
 3. Check if the content of the file test.txt is exactly the two lines:
 ```
 hello
@@ -43,5 +57,16 @@ world
 ```
 If test.txt is exactly the above two lines, print "same" on the screen. Otherwise, print "different".
 ```
+#!/bin/bash
 
+content="hello
+world"
+
+file_content=$(<test.txt)
+
+if [[ "$file_content" == "$content" ]]; then
+        echo "same"
+else
+        echo "different"
+fi
 ```
