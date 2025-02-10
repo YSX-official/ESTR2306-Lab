@@ -1,7 +1,9 @@
 # ESTR2306-Lab
 There are some Linux commands to solve problems of ESTR2306 Lab session.
 
-## Linux
+## Lab 1
+Compression: .tar.gz file, .tar.bz file and .zip file.
+## Lab 2
 1. Excluding directories, symbolic links and hidden files, find the 2nd largest file size in /bin by a single line of command.
 ```
 ls -l /bin | grep -v "^d" | grep -v "^l" | grep -v "^\." | tr -s " " | cut -d " " -f 5,9 | sort -n | tail -n 2 | head -n 1
@@ -18,15 +20,28 @@ cat | cut -d ' ' -f `echo $i` | paste -s -d + | bc
 ```
 cat | paste -s -d - | cut -d - -f `echo $i` | tr " " "+" | bc
 ```
-5. Join two files with matched labels.
+## Lab 3
+1. Join two files with matched labels.
 ```
 sort -n math.txt | join -s $'\t' name.txt | cut -d $'\t' -f2-
 ```
-6. Extract the path of the default shell the current user uses.
+2. Extract the path of the default shell the current user uses.
 ```
 getent passwd $USER | cut -d : -f7
 ```
-7. Adder
+3. Adder
 ```
 echo $((`cat | tr -s ' ' | tr ' ' +`))
+```
+## Lab 4
+1.
+2.
+3. Check if the content of the file test.txt is exactly the two lines:
+```
+hello
+world
+```
+If test.txt is exactly the above two lines, print "same" on the screen. Otherwise, print "different".
+```
+
 ```
