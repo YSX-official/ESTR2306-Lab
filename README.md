@@ -70,3 +70,28 @@ else
         echo "different"
 fi
 ```
+## Lab 5
+1. Full English name matching
+```
+^[A-Z][a-z]*( [A-Z][a-z]*\.?)* [A-Z][a-z]*$
+```
+2. Use grep to extract all lines that contain valid IPv4 addresses.
+```
+grep -E "\b((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])" [file]
+```
+3. Valid email addresses
+```
+^[a-zA-Z0-9][a-zA-Z0-9-]*@[a-zA-Z0-9][a-zA-Z0-9-]*\.[a-zA-Z0-9][a-zA-Z0-9]*$
+```
+4. Valid real number
+```
+^-?(0|[1-9]\d*)(\.\d+)?$
+```
+5. Repeat partern
+```
+^b(an){2,}as$
+```
+6. Bit string with 00 and 11
+```
+^(?=.*00)(?=.*11)[01]+$
+```
